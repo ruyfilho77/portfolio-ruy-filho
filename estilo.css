@@ -1,0 +1,511 @@
+/* =========================================================
+   estilo.css — Portfólio de Ruy Filho
+   CSS puro (sem frameworks). Organização:
+   1. Variáveis de tema (claro/escuro)
+   2. Reset e base
+   3. Cabeçalho e menu de navegação
+   4. Conteúdo principal e componentes (cards, listas, tags)
+   5. Formulário de contato e modal
+   6. Rodapé
+   7. Responsividade (celular/tablet)
+   ========================================================= */
+
+/* ---------- 1. VARIÁVEIS DE TEMA ----------
+   As cores ficam em variáveis CSS. O JavaScript apenas troca a
+   classe "tema-escuro" no <body>, e todas as cores mudam juntas. */
+:root {
+  --cor-fundo: #f5f7fa;
+  --cor-superficie: #ffffff;
+  --cor-texto: #1f2933;
+  --cor-texto-suave: #52606d;
+  --cor-destaque: #0b5fff;
+  --cor-destaque-suave: #e6eeff;
+  --cor-borda: #d9e2ec;
+  --cor-erro: #c62828;
+  --cor-sucesso: #2e7d32;
+  --sombra: 0 4px 16px rgba(15, 23, 42, 0.08);
+  --raio: 12px;
+  --largura-max: 960px;
+  --fonte: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+/* Tema escuro: sobrescreve apenas as variáveis de cor */
+body.tema-escuro {
+  --cor-fundo: #0f172a;
+  --cor-superficie: #1e293b;
+  --cor-texto: #e2e8f0;
+  --cor-texto-suave: #94a3b8;
+  --cor-destaque: #60a5fa;
+  --cor-destaque-suave: #1e3a5f;
+  --cor-borda: #334155;
+  --cor-erro: #f87171;
+  --cor-sucesso: #4ade80;
+  --sombra: 0 4px 16px rgba(0, 0, 0, 0.4);
+}
+
+/* ---------- 2. RESET E BASE ---------- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box; /* largura inclui padding e borda */
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--fonte);
+  background-color: var(--cor-fundo);
+  color: var(--cor-texto);
+  line-height: 1.6;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column; /* mantém o rodapé no fim da página */
+  transition: background-color 0.3s, color 0.3s;
+}
+
+a {
+  color: var(--cor-destaque);
+}
+
+/* ---------- 3. CABEÇALHO E MENU ---------- */
+.cabecalho {
+  position: sticky; /* menu fixo no topo durante a rolagem */
+  top: 0;
+  z-index: 10;
+  background-color: var(--cor-superficie);
+  border-bottom: 1px solid var(--cor-borda);
+  box-shadow: var(--sombra);
+}
+
+.cabecalho__conteudo {
+  max-width: var(--largura-max);
+  margin: 0 auto;
+  padding: 0.75rem 1.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.logo {
+  font-weight: 700;
+  font-size: 1.2rem;
+  color: var(--cor-texto);
+  text-decoration: none;
+}
+
+.logo span {
+  color: var(--cor-destaque);
+}
+
+.menu ul {
+  list-style: none;
+  display: flex;
+  gap: 0.25rem;
+}
+
+.menu a {
+  display: block;
+  padding: 0.5rem 0.9rem;
+  border-radius: 8px;
+  color: var(--cor-texto);
+  text-decoration: none;
+  font-weight: 500;
+  transition: background-color 0.2s;
+}
+
+.menu a:hover,
+.menu a.ativo {
+  background-color: var(--cor-destaque-suave);
+  color: var(--cor-destaque);
+}
+
+.cabecalho__acoes {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* Botões redondos do cabeçalho (tema e menu mobile) */
+.botao-icone {
+  background: none;
+  border: 1px solid var(--cor-borda);
+  color: var(--cor-texto);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  font-size: 1.1rem;
+  cursor: pointer;
+}
+
+.botao-icone:hover {
+  border-color: var(--cor-destaque);
+}
+
+/* O botão hambúrguer só aparece no celular (ver seção 7) */
+.botao-menu {
+  display: none;
+}
+
+/* ---------- 4. CONTEÚDO PRINCIPAL ---------- */
+main {
+  flex: 1;
+  width: 100%;
+  max-width: var(--largura-max);
+  margin: 0 auto;
+  padding: 2.5rem 1.25rem;
+}
+
+.titulo-pagina {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.subtitulo {
+  color: var(--cor-texto-suave);
+  margin-bottom: 2rem;
+}
+
+/* Bloco de apresentação da página inicial */
+.apresentacao {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  margin-bottom: 2.5rem;
+}
+
+/* Avatar com iniciais (substitui a foto) */
+.avatar {
+  flex-shrink: 0;
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--cor-destaque), #7c3aed);
+  color: #fff;
+  font-size: 2.5rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.apresentacao h1 {
+  font-size: 2.2rem;
+  line-height: 1.2;
+}
+
+.apresentacao p {
+  color: var(--cor-texto-suave);
+  font-size: 1.1rem;
+}
+
+/* Card genérico usado em todas as páginas */
+.card {
+  background-color: var(--cor-superficie);
+  border: 1px solid var(--cor-borda);
+  border-radius: var(--raio);
+  box-shadow: var(--sombra);
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.card h2 {
+  font-size: 1.3rem;
+  margin-bottom: 0.75rem;
+}
+
+.card p + p {
+  margin-top: 0.75rem;
+}
+
+/* Grade responsiva de cards: se ajusta sozinha à largura da tela */
+.grade {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.5rem;
+}
+
+.grade .card {
+  margin-bottom: 0;
+}
+
+/* Lista de hobbies com ícones */
+.lista-hobbies {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 0.75rem;
+}
+
+.lista-hobbies li {
+  background-color: var(--cor-destaque-suave);
+  border-radius: 8px;
+  padding: 0.75rem 1rem;
+  font-weight: 500;
+}
+
+/* Etiquetas (tags) para tecnologias */
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 0.75rem;
+}
+
+.tag {
+  font-size: 0.85rem;
+  padding: 0.25rem 0.7rem;
+  border-radius: 999px;
+  border: 1px solid var(--cor-destaque);
+  color: var(--cor-destaque);
+}
+
+/* Linha do tempo da formação */
+.linha-tempo {
+  list-style: none;
+  border-left: 3px solid var(--cor-destaque);
+  padding-left: 1.5rem;
+}
+
+.linha-tempo li {
+  position: relative;
+  margin-bottom: 1.5rem;
+}
+
+/* Bolinha da linha do tempo, desenhada só com CSS */
+.linha-tempo li::before {
+  content: "";
+  position: absolute;
+  left: calc(-1.5rem - 9px);
+  top: 0.4rem;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background-color: var(--cor-destaque);
+  border: 3px solid var(--cor-fundo);
+}
+
+.linha-tempo h3 {
+  font-size: 1.1rem;
+}
+
+.rotulo {
+  display: inline-block;
+  font-size: 0.85rem;
+  color: var(--cor-texto-suave);
+}
+
+.lista-simples {
+  padding-left: 1.25rem;
+}
+
+.lista-simples li + li {
+  margin-top: 0.35rem;
+}
+
+/* Botões de ação */
+.botao {
+  display: inline-block;
+  background-color: var(--cor-destaque);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 0.7rem 1.4rem;
+  font-size: 1rem;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  transition: opacity 0.2s, transform 0.2s;
+}
+
+.botao:hover {
+  opacity: 0.9;
+  transform: translateY(-1px);
+}
+
+.botao--secundario {
+  background: none;
+  color: var(--cor-destaque);
+  border: 1px solid var(--cor-destaque);
+}
+
+.acoes-card {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 1rem;
+}
+
+/* ---------- 5. FORMULÁRIO E MODAL ---------- */
+.formulario {
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+}
+
+.campo {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.campo label {
+  font-weight: 600;
+}
+
+.campo input,
+.campo textarea {
+  font: inherit;
+  padding: 0.7rem 0.9rem;
+  border: 1px solid var(--cor-borda);
+  border-radius: 8px;
+  background-color: var(--cor-fundo);
+  color: var(--cor-texto);
+}
+
+.campo input:focus,
+.campo textarea:focus {
+  outline: 2px solid var(--cor-destaque);
+  border-color: transparent;
+}
+
+/* Classe aplicada pelo JavaScript quando o campo é inválido */
+.campo.invalido input,
+.campo.invalido textarea {
+  border-color: var(--cor-erro);
+}
+
+.mensagem-erro {
+  color: var(--cor-erro);
+  font-size: 0.9rem;
+  min-height: 1.2em; /* reserva espaço e evita "pulos" no layout */
+}
+
+/* Fundo escuro do modal: escondido até o JavaScript abrir */
+.modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  background-color: rgba(0, 0, 0, 0.55);
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+
+.modal.aberto {
+  display: flex;
+}
+
+.modal__caixa {
+  background-color: var(--cor-superficie);
+  border-radius: var(--raio);
+  padding: 2rem;
+  max-width: 400px;
+  width: 100%;
+  text-align: center;
+  box-shadow: var(--sombra);
+}
+
+.modal__icone {
+  font-size: 2.5rem;
+  color: var(--cor-sucesso);
+}
+
+.modal__caixa h2 {
+  margin: 0.5rem 0;
+}
+
+.modal__caixa p {
+  color: var(--cor-texto-suave);
+  margin-bottom: 1.25rem;
+}
+
+/* Tabela (usada no simulador do portfólio) */
+.tabela-container {
+  overflow-x: auto; /* rolagem horizontal em telas pequenas */
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th,
+td {
+  padding: 0.6rem;
+  text-align: right;
+  border-bottom: 1px solid var(--cor-borda);
+}
+
+th:first-child,
+td:first-child {
+  text-align: left;
+}
+
+.resultado-destaque {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--cor-destaque);
+}
+
+/* ---------- 6. RODAPÉ ---------- */
+.rodape {
+  text-align: center;
+  padding: 1.5rem;
+  color: var(--cor-texto-suave);
+  border-top: 1px solid var(--cor-borda);
+  font-size: 0.9rem;
+}
+
+/* ---------- 7. RESPONSIVIDADE ---------- */
+@media (max-width: 720px) {
+  /* Mostra o botão hambúrguer */
+  .botao-menu {
+    display: inline-block;
+  }
+
+  /* O menu vira uma lista vertical escondida abaixo do cabeçalho */
+  .menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background-color: var(--cor-superficie);
+    border-bottom: 1px solid var(--cor-borda);
+    box-shadow: var(--sombra);
+  }
+
+  /* Classe adicionada pelo JavaScript ao clicar no hambúrguer */
+  .menu.aberto {
+    display: block;
+  }
+
+  .menu ul {
+    flex-direction: column;
+    padding: 0.5rem 1rem 1rem;
+  }
+
+  .apresentacao {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .apresentacao h1 {
+    font-size: 1.8rem;
+  }
+
+  .titulo-pagina {
+    font-size: 1.6rem;
+  }
+}
+
+/* Espaçamento extra acima de um card que vem depois de uma grade */
+.espaco-topo {
+  margin-top: 1.5rem;
+}

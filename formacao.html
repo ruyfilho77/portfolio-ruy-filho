@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<!-- Página "Formação" -->
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <!-- Faz o layout se adaptar à largura de celulares e tablets -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Formação acadêmica, idiomas e estudos de Ruy Filho.">
+  <title>Formação | Ruy Filho</title>
+  <link rel="stylesheet" href="css/estilo.css">
+</head>
+<body>
+
+  <!-- CABEÇALHO: o mesmo menu aparece em todas as páginas -->
+  <header class="cabecalho">
+    <div class="cabecalho__conteudo">
+      <a href="index.html" class="logo">Ruy<span>Filho</span></a>
+
+      <nav class="menu" id="menu" aria-label="Menu principal">
+        <ul>
+          <li><a href="index.html">Sobre mim</a></li>
+          <li><a href="formacao.html">Formação</a></li>
+          <li><a href="portfolio.html">Portfólio</a></li>
+          <li><a href="contato.html">Contato</a></li>
+        </ul>
+      </nav>
+
+      <div class="cabecalho__acoes">
+        <!-- Botão que alterna entre tema claro e escuro (script.js) -->
+        <button class="botao-icone" id="botao-tema" type="button" aria-label="Alternar tema">🌙</button>
+        <!-- Botão hambúrguer: visível apenas em telas pequenas -->
+        <button class="botao-icone botao-menu" id="botao-menu" type="button"
+                aria-label="Abrir menu" aria-expanded="false" aria-controls="menu">☰</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- CONTEÚDO PRINCIPAL -->
+  <main>
+    <h1 class="titulo-pagina">Formação</h1>
+    <p class="subtitulo">Formação acadêmica, idiomas e estudos complementares.</p>
+
+    <!-- Formação acadêmica em formato de linha do tempo -->
+    <section class="card">
+      <h2>Formação acadêmica</h2>
+      <ol class="linha-tempo">
+        <li>
+          <h3>CST em Ciência de Dados</h3>
+          <span class="rotulo">Centro Universitário Internacional UNINTER · Em andamento</span>
+          <p>
+            Curso superior de tecnologia focado em análise de dados, programação,
+            bancos de dados e estatística.
+          </p>
+        </li>
+      </ol>
+    </section>
+
+    <!-- Grade com duas colunas: disciplinas e idiomas -->
+    <div class="grade">
+      <section class="card">
+        <h2>Disciplinas de destaque</h2>
+        <ul class="lista-simples">
+          <li>Estruturas de Dados</li>
+          <li>Sistemas Gerenciadores de Banco de Dados</li>
+          <li>Ferramentas de Desenvolvimento Web</li>
+          <li>Projetos Extensionistas</li>
+        </ul>
+      </section>
+
+      <section class="card">
+        <h2>Idiomas</h2>
+        <ul class="lista-simples">
+          <li><strong>Português</strong> — nativo</li>
+          <li><strong>Inglês</strong> — intermediário</li>
+        </ul>
+      </section>
+    </div>
+
+    <!-- Estudos por conta própria -->
+    <section class="card espaco-topo">
+      <h2>Estudos complementares</h2>
+      <p>Além da graduação, estudo de forma autodidata as seguintes áreas:</p>
+      <div class="tags">
+        <span class="tag">Python</span>
+        <span class="tag">SQL</span>
+        <span class="tag">n8n e automação</span>
+        <span class="tag">Agentes de IA</span>
+        <span class="tag">Desenvolvimento de sites</span>
+        <span class="tag">SaaS</span>
+      </div>
+    </section>
+  </main>
+
+  <!-- RODAPÉ: o ano é preenchido pelo JavaScript -->
+  <footer class="rodape">
+    <p>&copy; <span id="ano-atual">2026</span> Ruy Filho · Feito com HTML, CSS e JavaScript ·
+      <a href="https://github.com/ruyfilho77" target="_blank" rel="noopener">GitHub</a></p>
+  </footer>
+
+  <script src="js/script.js"></script>
+</body>
+</html>

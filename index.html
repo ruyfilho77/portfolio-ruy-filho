@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<!-- Página inicial: "Sobre mim" -->
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <!-- Faz o layout se adaptar à largura de celulares e tablets -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Portfólio de Ruy Filho, estudante de Ciência de Dados na UNINTER.">
+  <title>Sobre mim | Ruy Filho</title>
+  <link rel="stylesheet" href="css/estilo.css">
+</head>
+<body>
+
+  <!-- CABEÇALHO: o mesmo menu aparece em todas as páginas -->
+  <header class="cabecalho">
+    <div class="cabecalho__conteudo">
+      <a href="index.html" class="logo">Ruy<span>Filho</span></a>
+
+      <nav class="menu" id="menu" aria-label="Menu principal">
+        <ul>
+          <li><a href="index.html">Sobre mim</a></li>
+          <li><a href="formacao.html">Formação</a></li>
+          <li><a href="portfolio.html">Portfólio</a></li>
+          <li><a href="contato.html">Contato</a></li>
+        </ul>
+      </nav>
+
+      <div class="cabecalho__acoes">
+        <!-- Botão que alterna entre tema claro e escuro (script.js) -->
+        <button class="botao-icone" id="botao-tema" type="button" aria-label="Alternar tema">🌙</button>
+        <!-- Botão hambúrguer: visível apenas em telas pequenas -->
+        <button class="botao-icone botao-menu" id="botao-menu" type="button"
+                aria-label="Abrir menu" aria-expanded="false" aria-controls="menu">☰</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- CONTEÚDO PRINCIPAL -->
+  <main>
+
+    <!-- Apresentação com avatar de iniciais -->
+    <section class="apresentacao">
+      <div class="avatar" aria-hidden="true">RF</div>
+      <div>
+        <h1>Olá, eu sou Ruy Filho</h1>
+        <p>Estudante de Ciência de Dados e entusiasta de programação, automação e inteligência artificial.</p>
+      </div>
+    </section>
+
+    <!-- Quem sou -->
+    <section class="card">
+      <h2>Quem sou</h2>
+      <p>
+        Sou assessor de investimentos, atuando de forma independente, sem vínculo com
+        empresas. Ajudo pessoas a entender e organizar seus investimentos.
+      </p>
+      <p>
+        Em paralelo, curso Ciência de Dados na UNINTER e dedico minhas tardes ao estudo de
+        programação. Meu objetivo é unir a experiência com finanças e atendimento ao
+        conhecimento técnico para criar soluções com dados e, no futuro, abrir minha própria
+        empresa de serviços em TI.
+      </p>
+    </section>
+
+    <!-- Tecnologias em estudo -->
+    <section class="card">
+      <h2>O que estou estudando</h2>
+      <div class="tags">
+        <span class="tag">Python</span>
+        <span class="tag">SQL</span>
+        <span class="tag">HTML5</span>
+        <span class="tag">CSS3</span>
+        <span class="tag">JavaScript</span>
+        <span class="tag">n8n</span>
+        <span class="tag">Automação</span>
+        <span class="tag">Agentes de IA</span>
+      </div>
+    </section>
+
+    <!-- Hobbies -->
+    <section class="card">
+      <h2>Hobbies</h2>
+      <ul class="lista-hobbies">
+        <li>🏀 Jogar basquete</li>
+        <li>🏞️ Cachoeiras</li>
+        <li>🏊 Natação</li>
+        <li>🚴 Andar de bike</li>
+      </ul>
+    </section>
+
+    <div class="acoes-card">
+      <a href="portfolio.html" class="botao">Ver meu portfólio</a>
+      <a href="contato.html" class="botao botao--secundario">Fale comigo</a>
+    </div>
+  </main>
+
+  <!-- RODAPÉ: o ano é preenchido pelo JavaScript -->
+  <footer class="rodape">
+    <p>&copy; <span id="ano-atual">2026</span> Ruy Filho · Feito com HTML, CSS e JavaScript ·
+      <a href="https://github.com/ruyfilho77" target="_blank" rel="noopener">GitHub</a></p>
+  </footer>
+
+  <script src="js/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<!-- Página "Portfólio" -->
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <!-- Faz o layout se adaptar à largura de celulares e tablets -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Projetos desenvolvidos por Ruy Filho.">
+  <title>Portfólio | Ruy Filho</title>
+  <link rel="stylesheet" href="css/estilo.css">
+</head>
+<body>
+
+  <!-- CABEÇALHO: o mesmo menu aparece em todas as páginas -->
+  <header class="cabecalho">
+    <div class="cabecalho__conteudo">
+      <a href="index.html" class="logo">Ruy<span>Filho</span></a>
+
+      <nav class="menu" id="menu" aria-label="Menu principal">
+        <ul>
+          <li><a href="index.html">Sobre mim</a></li>
+          <li><a href="formacao.html">Formação</a></li>
+          <li><a href="portfolio.html">Portfólio</a></li>
+          <li><a href="contato.html">Contato</a></li>
+        </ul>
+      </nav>
+
+      <div class="cabecalho__acoes">
+        <!-- Botão que alterna entre tema claro e escuro (script.js) -->
+        <button class="botao-icone" id="botao-tema" type="button" aria-label="Alternar tema">🌙</button>
+        <!-- Botão hambúrguer: visível apenas em telas pequenas -->
+        <button class="botao-icone botao-menu" id="botao-menu" type="button"
+                aria-label="Abrir menu" aria-expanded="false" aria-controls="menu">☰</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- CONTEÚDO PRINCIPAL -->
+  <main>
+    <h1 class="titulo-pagina">Portfólio</h1>
+    <p class="subtitulo">Projetos que desenvolvi durante os meus estudos.</p>
+
+    <!-- Grade de projetos: cada card tem descrição, tecnologias e links -->
+    <div class="grade">
+
+      <!-- Projeto 1: o próprio site -->
+      <article class="card">
+        <h2>Portfólio pessoal</h2>
+        <p>
+          Este site. Currículo online com quatro páginas, menu responsivo, tema claro/escuro
+          e formulário de contato com validação, feito sem nenhum framework.
+        </p>
+        <div class="tags">
+          <span class="tag">HTML5</span>
+          <span class="tag">CSS3</span>
+          <span class="tag">JavaScript</span>
+        </div>
+        <div class="acoes-card">
+          <a href="https://github.com/ruyfilho77/portfolio-ruy-filho" class="botao"
+             target="_blank" rel="noopener">Código no GitHub</a>
+        </div>
+      </article>
+
+      <!-- Projeto 2: simulador hospedado neste mesmo repositório -->
+      <article class="card">
+        <h2>Simulador de Juros Compostos</h2>
+        <p>
+          Calcula a evolução de um investimento com aporte inicial, aportes mensais e taxa
+          de juros, mostrando o total investido, os juros ganhos e uma tabela ano a ano.
+          Une meu trabalho com investimentos ao estudo de programação.
+        </p>
+        <div class="tags">
+          <span class="tag">JavaScript</span>
+          <span class="tag">Finanças</span>
+        </div>
+        <div class="acoes-card">
+          <a href="projetos/simulador-juros/index.html" class="botao">Abrir simulador</a>
+          <a href="https://github.com/ruyfilho77/portfolio-ruy-filho/tree/main/projetos/simulador-juros"
+             class="botao botao--secundario" target="_blank" rel="noopener">Código</a>
+        </div>
+      </article>
+
+      <!-- Projeto 3: projeto extensionista da graduação -->
+      <article class="card">
+        <h2>Incluir para Proteger</h2>
+        <p>
+          Projeto extensionista da graduação: educação digital contra fraudes para a terceira
+          idade, realizado com uma associação de idosos em Laranjal Paulista (SP). O foco é
+          ensinar a reconhecer golpes e usar a tecnologia com segurança.
+        </p>
+        <div class="tags">
+          <span class="tag">Extensão universitária</span>
+          <span class="tag">Segurança digital</span>
+          <span class="tag">Inclusão</span>
+        </div>
+      </article>
+
+    </div>
+  </main>
+
+  <!-- RODAPÉ: o ano é preenchido pelo JavaScript -->
+  <footer class="rodape">
+    <p>&copy; <span id="ano-atual">2026</span> Ruy Filho · Feito com HTML, CSS e JavaScript ·
+      <a href="https://github.com/ruyfilho77" target="_blank" rel="noopener">GitHub</a></p>
+  </footer>
+
+  <script src="js/script.js"></script>
+</body>
+</html>

@@ -509,3 +509,10 @@ td:first-child {
 .espaco-topo {
   margin-top: 1.5rem;
 }
+
+/* Nome completo no logo: reduz a fonte em telas bem estreitas */
+@media (max-width: 480px) {
+  .logo {
+    font-size: 0.95rem;
+  }
+}

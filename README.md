@@ -1,4 +1,4 @@
-# Portfólio — Ruy Filho
+# Portfólio — Ruy Pinheiro Rodrigues Filho
 
 Currículo online desenvolvido para a atividade prática da disciplina de desenvolvimento web (UNINTER), usando apenas **HTML5, CSS3 e JavaScript puros**, sem frameworks.
 
